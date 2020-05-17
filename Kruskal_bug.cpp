@@ -4,7 +4,6 @@
 #include <list>
 #include <iomanip>      // for setw()
 
-
 structure Edge{
     int from, to, weight;
     Edge(){};
@@ -85,7 +84,7 @@ void GraphMST:KruskalMST(){
     }
 
     std::vector<struct Edge> increaseWeight;
-    GetSortedEdge(increaseWeight);            // 得到排好序的edge的vec
+    GetSortedEdge(increaseWeight);              # 得到排好序的edge的vec
 
     for (int i = 0; i < increaseWeight.size(); i++) {
         if (FindSetCollapsing(subset, increaseWeight[i].from) != FindSetCollapsing(subset, increaseWeight[i].to)) {
@@ -94,9 +93,9 @@ void GraphMST:KruskalMST(){
         }
     }
     // 以下僅僅是印出vertex與vertex之predecessor
-    std::cout << std::setw(3) << "v1" << " - " << std::setw(3) << "v2"<<  : weight << "\n";
+    std::cout << std::setw(3) << "v1" << " - " << std::setw(3) << "v2"<<  : weight\n;
     for (int i = 0; i < num_vertex-1; i++) {
-        std::cout << std::setw(3) << edgesetMST[i].from << " - " << std::setw(3) << edgesetMST[i].to
+        std::cout << std::setw(3) << edgesetMST[i].from << " - " << std::setw(3) << edgesetMST[i].to 
                   << " : " << std::setw(4) << edgesetMST[i].weight << "\n";
     }
 }
@@ -118,5 +117,5 @@ int main(){
     std::cout < "MST found by Kruskal:\n";
     g6.KrukalMST();
 
-
+    
 }
