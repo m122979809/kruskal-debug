@@ -11,7 +11,7 @@ struct Edge{
 };
 
 class GraphMST{
-private;
+private:
     int num_vertex;
     std::vector<std::vector<int> > AdjMatrix;
 public:
@@ -29,13 +29,13 @@ public:
     friend int FindSetCollapsing(int *subset, int i);
     friend void UnionSet(int *subset, int x, int y);
 };
-void FindSetCollapsing(int *subset, int i){      // 用遞迴做collapsing
+int FindSetCollapsing(int *subset, int i){      // 用遞迴做collapsing
 
     int root;  // root
     for (root = i; subset[root] >= 0; root = subset[root]);
 
     while (i != root) {
-        int parent == subset[i];
+        int parent = subset[i];
         subset[i] = root;
         i = parent;
     }
@@ -55,7 +55,7 @@ void UnionSet(int *subset, int x int y){
     }
     else {    //  if (subset[xroot] > subset[yroot]), 表示y比較多element
         subset[yroot] += subset[xroot];
-        subset[xroot] = yrooot;
+        subset[xroot] = yroot;
     }
 }
 bool WeightComp(struct Edge e1, struct Edge e2){
